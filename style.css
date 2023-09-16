@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all .5s ease;
+}
+
+:root {
+  --operatorsColor: #ff9500;
+  --numbersColor: #999999;
+  --backgroundColor: #17181A;
+  --restCalcColor: #D4D4D2;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--backgroundColor);
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  padding: 10px;
+  border: 2px solid white;
+  border-radius: 20px;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  width: 258px;
+  min-height: 500px;
+}
+
+.container.one {
+  border: 2px solid black;
+}
+
+table {
+  width: fit-content;
+}
+
+table tbody {
+  display: grid;
+  gap: 10px;
+}
+
+table tbody tr {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+}
+
+table tbody tr:last-child {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+}
+
+table tbody tr td {
+  color: white;
+  background-color: var(--numbersColor);
+  padding: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+table tbody tr:last-child td:first-child {
+  width: 100%;
+  border-radius: 50px;
+}
+
+table tbody tr:first-child td:not(:last-child) {
+  background-color: var(--restCalcColor);
+  color: black;
+}
+
+
+table tbody tr td:last-child {
+  background-color: var(--operatorsColor);
+}
+
+table tbody tr:first-child td:nth-child(2) span {
+  font-size: 16px;
+}
+
+
+.finel {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+  margin-bottom: 25px;
+  overflow-wrap: anywhere;
+}
+
+span.fun {
+  color: var(--numbersColor);
+  font-size: 16px;
+  transform: scale(0);
+
+}
+
+.result {
+  font-size: 35px;
+  color: white;
+  transform: rotateX(90deg);
+  min-width: 50px;
+  min-height: 50px;
+  text-align: end;
+}
+
+.container.one .finel .result {
+  color: black;
+}
+
+.container .dark {
+  background-color: #eee;
+  border-radius: 20px;
+  width: 60px;
+  height: 25px;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 11px;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
+
+.container .dark::before {
+  content: "";
+  position: absolute;
+  background-color: #17181a;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: 50%;
+  transform: translate(-3px, -50%);
+  z-index: 1;
+
+}
+
+.container .dark::after {
+  content: "OFF";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  color: #17181a;
+  transform: translateY(-50%);
+  font-size: 11px;
+}
+
+.container.one .dark {
+  background-color: #17181a;
+}
+
+.container.one .dark::before {
+  background-color: #fff;
+  transform: translate(32px, -50%);
+}
